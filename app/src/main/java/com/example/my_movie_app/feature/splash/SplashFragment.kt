@@ -34,7 +34,7 @@ class SplashFragment : Fragment() {
     }
 
     private fun navigateTpHome() {
-        findNavController().navigate(R.id.action_splashFragment2_to_home2)
+        findNavController().navigate(SplashFragmentDirections.actionSplashFragmentToHome())
     }
 
 }
