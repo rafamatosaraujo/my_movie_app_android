@@ -7,8 +7,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
+import com.example.my_movie_app.BuildConfig
 import com.example.my_movie_app.R
 class SplashFragment : Fragment() {
 
@@ -22,15 +24,18 @@ class SplashFragment : Fragment() {
     ): View? {
         val view: View = inflater.inflate(R.layout.fragment_splash, container, false)
 
-        setupView()
+        setupView(view)
 
         return view
     }
 
-    private fun setupView() {
+    private fun setupView(view: View) {
+        val appVersion = view.findViewById<TextView>(R.id.app_version)
+        appVersion.text = resources.getString(R.string.app_version, BuildConfig.VERSION_NAME)
+
         Handler(Looper.getMainLooper()).postDelayed({
             navigateTpHome()
-        }, 1000)
+        }, 3000)
     }
 
     private fun navigateTpHome() {
